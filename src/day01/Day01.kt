@@ -14,12 +14,11 @@ fun String.toDigits(): Int {
 /**
  * String replace from pairs
  */
-fun String.replace(vararg pairs: Pair<String, String>): String =
-        this.fold("") { acc, item ->
-            var result = acc + item
-            pairs.forEach { result = result.replace(it.first, it.second + item) }
-            result
-        }
+fun String.replace(vararg pairs: Pair<String, String>): String = this.fold("") { acc, item ->
+    var result = acc + item
+    pairs.forEach { result = result.replace(it.first, it.second + item) }
+    result
+}
 
 fun main() {
 
@@ -28,20 +27,19 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        return input
-                .sumOf {
-                    it.replace(
-                            "one" to "1",
-                            "two" to "2",
-                            "three" to "3",
-                            "four" to "4",
-                            "five" to "5",
-                            "six" to "6",
-                            "seven" to "7",
-                            "eight" to "8",
-                            "nine" to "9"
-                    ).toDigits()
-                }
+        return input.sumOf {
+            it.replace(
+                    "one" to "1",
+                    "two" to "2",
+                    "three" to "3",
+                    "four" to "4",
+                    "five" to "5",
+                    "six" to "6",
+                    "seven" to "7",
+                    "eight" to "8",
+                    "nine" to "9"
+            ).toDigits()
+        }
     }
 
     val testInput1 = readInput("day01/Day01_test1")
